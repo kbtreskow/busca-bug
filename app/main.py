@@ -18,7 +18,7 @@ def run(playwright: Playwright):
     try:
         send_logs("Iniciando recorrido de pruebas en FactorIA")
         chromium = playwright.chromium
-        browser = chromium.launch(headless=False)
+        browser = chromium.launch(headless=True)
         page = browser.new_page()
         page.on("console", lambda msg: (print(f"[CONSOLE ERROR] {msg.text}"), send_logs(f"```diff\n- [CONSOLE ERROR] {name_step}\n  {msg.text}```")) if msg.type == "error" else None)
         page.goto(url)

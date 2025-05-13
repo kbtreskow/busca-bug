@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: BUSCA-BUG
+    #restart: unless-stopped
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
